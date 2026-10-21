@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse Stackly tour packages - adventure, honeymoon, family, luxury, beach and cultural tours.">
+    <title>Tours - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="page-hero page-hero-tours">
+            <div class="container">
+                <h1 class="scroll-animate">Tour Packages</h1>
+                <p class="scroll-animate">Unforgettable experiences crafted for every kind of traveler</p>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Tours</span>
+                </nav>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="filters-bar">
+                    <div class="filter-group" role="group" aria-label="Tour categories">
+                        <button class="filter-btn tour-filter-btn active" data-filter="all">All Tours</button>
+                        <button class="filter-btn tour-filter-btn" data-filter="adventure">Adventure</button>
+                        <button class="filter-btn tour-filter-btn" data-filter="honeymoon">Honeymoon</button>
+                        <button class="filter-btn tour-filter-btn" data-filter="family">Family</button>
+                        <button class="filter-btn tour-filter-btn" data-filter="luxury">Luxury</button>
+                        <button class="filter-btn tour-filter-btn" data-filter="beach">Beach</button>
+                        <button class="filter-btn tour-filter-btn" data-filter="cultural">Cultural</button>
+                    </div>
+                    <div class="filter-selects">
+                        <label class="sr-only" for="tour-sort">Sort tours</label>
+                        <select id="tour-sort">
+                            <option value="popular">Most Popular</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="duration">Shortest Duration</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                        <label for="price-range">Max price: <span id="price-value">$3000</span></label>
+                        <input type="range" id="price-range" min="500" max="3000" value="3000" step="100" aria-label="Maximum price">
+                    </div>
+                </div>
+
+                <div class="grid grid-3 tours-grid" id="toursGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/tours.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/destinations.js"></script>
+</body>
+</html>

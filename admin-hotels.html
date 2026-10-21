@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage hotels - Stackly Travel & Tourism admin.">
+    <title>Hotels - Admin Dashboard | Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+
+    <header class="dashboard-topbar">
+        <div class="container dashboard-topbar-inner">
+            <a href="index.html" class="logo" aria-label="Stackly Travel & Tourism Home">
+                <span class="logo-icon" aria-hidden="true">
+                    <img src="images/logo/logo.webp" alt="Stackly logo" width="120" height="45">
+                </span>
+            </a>
+            <div class="dashboard-topbar-user">
+                <span class="dashboard-topbar-name">Admin User</span>
+                <a href="login.html" class="btn btn-outline btn-sm">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="dashboard-page">
+            <div class="container">
+                <div class="dashboard-layout">
+                    <aside class="dashboard-sidebar">
+                        <div class="dashboard-profile">
+                            <div class="dashboard-avatar" aria-hidden="true">AD</div>
+                            <h3>Admin User</h3>
+                            <p>admin@stackly.com</p>
+                        </div>
+                        <nav aria-label="Dashboard navigation">
+                            <ul class="dashboard-nav">
+                                <li><a href="admin-dashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard</a></li>
+                                <li><a href="admin-bookings.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Bookings</a></li>
+                                <li><a href="admin-tours.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Tours</a></li>
+                                <li><a href="admin-hotels.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg> Hotels</a></li>
+                                <li><a href="admin-testimonials.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Reviews</a></li>
+                                <li><a href="login.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+
+                    <div class="dashboard-main">
+                        <div class="dashboard-header">
+                            <div>
+                                <h1>Hotels</h1>
+                                <p>Manage hotel listings, pricing and availability.</p>
+                            </div>
+                            <div class="dashboard-actions">
+                                <a href="hotels.html" class="btn btn-outline">View Site</a>
+                                <button type="button" class="btn btn-primary" onclick="showToast('Add hotel form (demo).', 'success')">Add Hotel</button>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-grid">
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+                                </div>
+                                <h3>Hotels Listed</h3>
+                                <div class="dashboard-value">9</div>
+                                <span class="dashboard-trend">+1 this month</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                </div>
+                                <h3>Total Rooms</h3>
+                                <div class="dashboard-value">420</div>
+                                <span class="dashboard-trend">Across all properties</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon accent" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                </div>
+                                <h3>Average Price</h3>
+                                <div class="dashboard-value">$315</div>
+                                <span class="dashboard-trend">Per night</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon accent" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <h3>Average Rating</h3>
+                                <div class="dashboard-value">4.8</div>
+                                <span class="dashboard-trend">From 980 reviews</span>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-section">
+                            <div class="dashboard-section-head">
+                                <h2>All Hotels</h2>
+                            </div>
+                            <div class="dashboard-toolbar">
+                                <input type="search" class="form-input" placeholder="Search hotels" aria-label="Search hotels">
+                                <select class="form-input small" aria-label="Filter by type">
+                                    <option value="">All Types</option>
+                                    <option value="beach">Beach</option>
+                                    <option value="city">City</option>
+                                    <option value="mountain">Mountain</option>
+                                </select>
+                            </div>
+                            <div class="table-wrap">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Hotel</th>
+                                            <th>Location</th>
+                                            <th>Price / Night</th>
+                                            <th>Rating</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Azure Bay Resort</td>
+                                            <td>Bali, Indonesia</td>
+                                            <td>$220</td>
+                                            <td>4.8</td>
+                                            <td><span class="dashboard-badge confirmed">Active</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Edit hotel (demo).', 'success')">Edit</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Hotel removed (demo).', 'warning')">Delete</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Coral Grand Maldives</td>
+                                            <td>Maldives</td>
+                                            <td>$540</td>
+                                            <td>4.9</td>
+                                            <td><span class="dashboard-badge confirmed">Active</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Edit hotel (demo).', 'success')">Edit</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Hotel removed (demo).', 'warning')">Delete</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maison Lumière</td>
+                                            <td>Paris, France</td>
+                                            <td>$310</td>
+                                            <td>4.7</td>
+                                            <td><span class="dashboard-badge confirmed">Active</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Edit hotel (demo).', 'success')">Edit</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Hotel removed (demo).', 'warning')">Delete</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alpine Peak Lodge</td>
+                                            <td>Swiss Alps</td>
+                                            <td>$295</td>
+                                            <td>4.9</td>
+                                            <td><span class="dashboard-badge confirmed">Active</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Edit hotel (demo).', 'success')">Edit</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Hotel removed (demo).', 'warning')">Delete</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ryokan Sakura</td>
+                                            <td>Kyoto, Japan</td>
+                                            <td>$260</td>
+                                            <td>4.8</td>
+                                            <td><span class="dashboard-badge confirmed">Active</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Edit hotel (demo).', 'success')">Edit</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Hotel removed (demo).', 'warning')">Delete</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Northern Lights Lodge</td>
+                                            <td>Tromsø, Norway</td>
+                                            <td>$350</td>
+                                            <td>4.9</td>
+                                            <td><span class="dashboard-badge pending">Draft</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Edit hotel (demo).', 'success')">Edit</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Hotel removed (demo).', 'warning')">Delete</button></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html>

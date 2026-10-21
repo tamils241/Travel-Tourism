@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Destination details - explore highlights, experiences, best time to visit and book your trip with Stackly.">
+    <title>Destination Details - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="detail-hero" id="detailHero">
+            <div class="container detail-hero-content">
+                <nav class="breadcrumbs" aria-label="Breadcrumb" style="justify-content:flex-start">
+                    <a href="index.html">Home</a> <span>/</span> <a href="destinations.html">Destinations</a> <span>/</span> <span id="crumbName">Destination</span>
+                </nav>
+                <h1 id="destName">Destination</h1>
+                <div class="meta-info" id="destMeta"></div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="detail-layout">
+                    <div>
+                        <div class="detail-section">
+                            <h2>Overview</h2>
+                            <p id="destOverview"></p>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Top Highlights</h2>
+                            <ul class="feature-list" id="destHighlights"></ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Best Time to Visit</h2>
+                            <p id="destBestTime"></p>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Traveler Reviews</h2>
+                            <div id="destReviews" class="grid" style="grid-template-columns:1fr;gap:1rem"></div>
+                        </div>
+                    </div>
+
+                    <aside class="detail-sidebar">
+                        <div class="detail-card">
+                            <div class="card-price" style="font-size:1.75rem" id="destPrice"></div>
+                            <p style="font-size:0.85rem">per person, includes accommodation &amp; guided tours</p>
+                            <ul class="feature-list" style="grid-template-columns:1fr;margin:1rem 0">
+                                <li>Free cancellation (30 days)</li>
+                                <li>24/7 support</li>
+                                <li>Best price guarantee</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-accent btn-full btn-lg mb-sm" id="destBook">Book This Trip</a>
+                            <a href="destinations.html" class="btn btn-outline btn-full">Back to Destinations</a>
+                            <button class="wishlist-btn" style="position:static;margin:1rem auto 0;width:100%;height:auto;border-radius:0.5rem;padding:0.75rem" id="destWishlist" aria-label="Add to wishlist">♡ Save to Wishlist</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var params = new URLSearchParams(window.location.search);
+            var id = params.get('id') || 'bali';
+            var data = window.STACKLY_DATA.destinations;
+            var dest = data.find(function (d) { return d.id === id; }) || data[0];
+
+            document.title = dest.name + ', ' + dest.country + ' - Stackly Travel & Tourism';
+            document.getElementById('detailHero').style.backgroundImage =
+                'linear-gradient(to top, rgba(16,42,67,0.95), rgba(16,42,67,0.3) 60%, transparent), url(' + dest.image + ')';
+            document.getElementById('crumbName').textContent = dest.name;
+            document.getElementById('destName').textContent = dest.name + ', ' + dest.country;
+            document.getElementById('destMeta').innerHTML =
+                '<span class="meta-item">📍 ' + dest.country + '</span>' +
+                '<span class="meta-item">📅 ' + dest.duration + '</span>' +
+                '<span class="meta-item">⭐ ' + dest.rating + ' (' + dest.reviews + ' reviews)</span>';
+            document.getElementById('destOverview').textContent =
+                dest.description + ' ' + dest.name + ' offers an unforgettable blend of natural beauty, culture and adventure. ' +
+                'Our expertly curated trips help you experience the very best this remarkable destination has to offer.';
+            document.getElementById('destBestTime').textContent =
+                'The best time to visit ' + dest.name + ' depends on what you wish to experience. Generally, shoulder seasons offer ' +
+                'great weather with fewer crowds and better value. Our travel experts can advise on the ideal window for your trip.';
+            document.getElementById('destPrice').innerHTML = '$' + dest.price.toLocaleString() + '<small>/person</small>';
+            document.getElementById('destBook').href = 'booking.html?dest=' + dest.id;
+
+            var highlights = ['Iconic landmarks and viewpoints', 'Local cuisine experiences', 'Guided cultural tours',
+                'Scenic nature excursions', 'Free time to explore at your pace', 'Hotel pickup and transfers'];
+            document.getElementById('destHighlights').innerHTML =
+                highlights.map(function (h) { return '<li>' + h + '</li>'; }).join('');
+
+            var reviews = window.STACKLY_DATA.testimonials.slice(0, 3);
+            document.getElementById('destReviews').innerHTML = reviews.map(function (r) {
+                var initials = r.name.split(' ').map(function (n) { return n[0]; }).join('').slice(0, 2);
+                return '<div class="content-card"><div class="testimonial-stars">' + '★'.repeat(r.rating) + '</div>' +
+                    '<p class="testimonial-text" style="margin-top:0.5rem">“' + r.text + '”</p>' +
+                    '<div class="testimonial-author"><div class="testimonial-avatar">' + initials + '</div><div>' +
+                    '<p class="testimonial-name">' + r.name + '</p><p class="testimonial-location">' + r.location + '</p></div></div></div>';
+            }).join('');
+
+            // Wishlist button
+            var wl = document.getElementById('destWishlist');
+            wl.setAttribute('data-id', 'dest-' + dest.id);
+            wl.setAttribute('data-title', dest.name + ', ' + dest.country);
+            wl.setAttribute('data-type', 'destination');
+            wl.setAttribute('data-image', dest.image);
+            wl.setAttribute('data-price', '$' + dest.price);
+            wl.setAttribute('data-location', dest.country);
+            wl.classList.add('wishlist-btn');
+            wl.style.position = 'static';
+
+            function refresh() {
+                if (typeof window.isInWishlist === 'function' && window.isInWishlist('dest-' + dest.id)) {
+                    wl.classList.add('active');
+                    wl.textContent = '♥ Saved to Wishlist';
+                } else {
+                    wl.classList.remove('active');
+                    wl.textContent = '♡ Save to Wishlist';
+                }
+            }
+            refresh();
+            wl.addEventListener('click', function () { setTimeout(refresh, 50); });
+        });
+    </script>
+</body>
+</html>

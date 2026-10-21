@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your Stackly trip - share your travel details and our team will confirm your reservation.">
+    <title>Book Your Trip - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="page-hero page-hero-booking">
+            <div class="container">
+                <h1 class="scroll-animate">Book Your Trip</h1>
+                <p class="scroll-animate">Fill in your details and we'll take care of the rest</p>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Booking</span>
+                </nav>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="booking-layout">
+                    <div>
+                        <form id="bookingForm" novalidate>
+                            <div class="detail-card mb-lg">
+                                <h3 class="mb-md">Traveler Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="bookingFirstName">First Name</label>
+                                        <input type="text" id="bookingFirstName" class="form-input" placeholder="First name" maxlength="16" required>
+                                        <div class="form-error" id="bookingFirstNameError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="bookingLastName">Last Name</label>
+                                        <input type="text" id="bookingLastName" class="form-input" placeholder="Last name" maxlength="16" required>
+                                        <div class="form-error" id="bookingLastNameError"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="bookingEmail">Email Address</label>
+                                        <input type="email" id="bookingEmail" class="form-input" placeholder="you@example.com" required>
+                                        <div class="form-error" id="bookingEmailError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="bookingPhone">Phone Number</label>
+                                        <input type="tel" id="bookingPhone" class="form-input" placeholder="10-digit phone number" maxlength="10" inputmode="numeric" required>
+                                        <div class="form-error" id="bookingPhoneError"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-card mb-lg">
+                                <h3 class="mb-md">Trip Details</h3>
+                                <div class="form-group">
+                                    <label class="form-label" for="bookingDestination">Destination / Tour</label>
+                                    <select id="bookingDestination" class="form-select">
+                                        <option value="">Select a destination or tour</option>
+                                        <option value="bali">Bali, Indonesia</option>
+                                        <option value="maldives">Maldives</option>
+                                        <option value="paris">Paris, France</option>
+                                        <option value="swiss-alps">Swiss Alps</option>
+                                        <option value="kyoto">Kyoto, Japan</option>
+                                        <option value="dubai">Dubai, UAE</option>
+                                    </select>
+                                    <div class="form-error" id="bookingDestinationError"></div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="checkIn">Check-in / Departure</label>
+                                        <input type="date" id="checkIn" class="form-input" required>
+                                        <div class="form-error" id="checkInError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="checkOut">Check-out / Return</label>
+                                        <input type="date" id="checkOut" class="form-input" required>
+                                        <div class="form-error" id="checkOutError"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Guests</label>
+                                        <div class="counter-control">
+                                            <button type="button" class="counter-btn" id="guestMinus" aria-label="Decrease guests">−</button>
+                                            <div class="counter-value" id="guestValue" aria-live="polite">0</div>
+                                            <button type="button" class="counter-btn" id="guestPlus" aria-label="Increase guests">+</button>
+                                        </div>
+                                        <input type="hidden" id="guests" value="2">
+                                        <div class="form-error" id="guestsError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="tripType">Trip Type</label>
+                                        <select id="tripType" class="form-select">
+                                            <option value="leisure">Leisure</option>
+                                            <option value="honeymoon">Honeymoon</option>
+                                            <option value="family">Family</option>
+                                            <option value="adventure">Adventure</option>
+                                        <option value="business">Business</option>
+                                    </select>
+                                    <div class="form-error" id="tripTypeError"></div>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="bookingNotes">Special Requests (optional)</label>
+                                    <textarea id="bookingNotes" class="form-textarea" placeholder="Dietary requirements, room preferences, etc."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="detail-card">
+                                <label class="checkbox-label mb-md">
+                                    <input type="checkbox" id="agreeTerms">
+                                    <span>I agree to the terms and conditions and understand this is a demonstration website.</span>
+                                </label>
+                                <div class="form-error" id="agreeTermsError"></div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-full">Submit Booking Request</button>
+                                <div class="form-success" id="bookingSuccess" style="margin-top:1rem">Booking request submitted! This is a frontend demo — no payment has been processed. Our team would contact you to confirm.</div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <aside class="detail-sidebar">
+                        <div class="detail-card">
+                            <h3 class="mb-md">Why Book With Us</h3>
+                            <ul class="feature-list" style="grid-template-columns:1fr">
+                                <li>Free cancellation within 30 days</li>
+                                <li>24/7 traveler support</li>
+                                <li>Best price guarantee</li>
+                                <li>Personalized itineraries</li>
+                                <li>Secure booking process</li>
+                            </ul>
+                            <hr style="margin:1.5rem 0;border:none;border-top:1px solid var(--light-gray)">
+                            <p style="font-size:0.85rem;color:var(--text-light);margin:0">Need help? Call us at <a href="tel:+15551234567">+1 (555) 123-4567</a> or visit our <a href="contact.html">contact page</a>.</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

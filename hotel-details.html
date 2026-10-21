@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hotel details - amenities, room types, location and nightly rates. Book your stay with Stackly.">
+    <title>Hotel Details - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="detail-hero" id="detailHero">
+            <div class="container detail-hero-content">
+                <nav class="breadcrumbs" aria-label="Breadcrumb" style="justify-content:flex-start">
+                    <a href="index.html">Home</a> <span>/</span> <a href="hotels.html">Hotels</a> <span>/</span> <span id="crumbName">Hotel</span>
+                </nav>
+                <h1 id="hotelName">Hotel</h1>
+                <div class="meta-info" id="hotelMeta"></div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="detail-layout">
+                    <div>
+                        <div class="detail-section">
+                            <h2>About This Property</h2>
+                            <p id="hotelAbout"></p>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Amenities</h2>
+                            <ul class="feature-list" id="hotelAmenities"></ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Room Types</h2>
+                            <div class="grid" style="grid-template-columns:1fr;gap:1rem">
+                                <div class="content-card"><h4>Deluxe Room</h4><p>Spacious room with king bed, city or garden view, and en-suite bathroom.</p></div>
+                                <div class="content-card"><h4>Premier Suite</h4><p>Separate living area, premium views and complimentary breakfast for two.</p></div>
+                                <div class="content-card"><h4>Family Room</h4><p>Comfortable accommodation for up to four guests with connecting options.</p></div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Guest Reviews</h2>
+                            <div id="hotelReviews" class="grid" style="grid-template-columns:1fr;gap:1rem"></div>
+                        </div>
+                    </div>
+
+                    <aside class="detail-sidebar">
+                        <div class="detail-card">
+                            <div class="card-price" style="font-size:1.75rem" id="hotelPrice"></div>
+                            <p style="font-size:0.85rem">per night, taxes included</p>
+                            <ul class="feature-list" style="grid-template-columns:1fr;margin:1rem 0">
+                                <li>Free cancellation</li>
+                                <li>No prepayment needed</li>
+                                <li>Instant confirmation (demo)</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-accent btn-full btn-lg mb-sm" id="hotelBook">Book This Stay</a>
+                            <a href="hotels.html" class="btn btn-outline btn-full">Back to Hotels</a>
+                            <button class="wishlist-btn" style="position:static;margin:1rem auto 0;width:100%;height:auto;border-radius:0.5rem;padding:0.75rem" id="hotelWishlist" aria-label="Add to wishlist">♡ Save to Wishlist</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var params = new URLSearchParams(window.location.search);
+            var id = params.get('id') || 'h1';
+            var data = window.STACKLY_DATA.hotels;
+            var hotel = data.find(function (h) { return h.id === id; }) || data[0];
+
+            function stars(rating) {
+                var full = Math.round(rating);
+                return '★'.repeat(full) + '☆'.repeat(5 - full);
+            }
+
+            document.title = hotel.name + ' - Stackly Travel & Tourism';
+            document.getElementById('detailHero').style.backgroundImage =
+                'linear-gradient(to top, rgba(16,42,67,0.95), rgba(16,42,67,0.3) 60%, transparent), url(' + hotel.image + ')';
+            document.getElementById('crumbName').textContent = hotel.name;
+            document.getElementById('hotelName').textContent = hotel.name;
+            document.getElementById('hotelMeta').innerHTML =
+                '<span class="meta-item">📍 ' + hotel.location + '</span>' +
+                '<span class="meta-item">' + stars(hotel.rating) + ' ' + hotel.rating + '</span>' +
+                '<span class="meta-item">🏷️ ' + hotel.badge + '</span>';
+            document.getElementById('hotelAbout').textContent =
+                hotel.name + ' is a ' + hotel.badge.toLowerCase() + ' property located in ' + hotel.location + '. ' +
+                'Enjoy thoughtfully designed rooms, excellent service and convenient access to the area\'s top attractions.';
+            document.getElementById('hotelPrice').innerHTML = '$' + hotel.price + '<small>/night</small>';
+            document.getElementById('hotelBook').href = 'booking.html';
+            document.getElementById('hotelAmenities').innerHTML =
+                hotel.amenities.concat(['24-hour front desk', 'Room service', 'Concierge', 'Laundry service'])
+                    .map(function (a) { return '<li>' + a + '</li>'; }).join('');
+
+            var reviews = window.STACKLY_DATA.testimonials.slice(0, 2);
+            document.getElementById('hotelReviews').innerHTML = reviews.map(function (r) {
+                var initials = r.name.split(' ').map(function (n) { return n[0]; }).join('').slice(0, 2);
+                return '<div class="content-card"><div class="testimonial-stars">' + '★'.repeat(r.rating) + '</div>' +
+                    '<p class="testimonial-text" style="margin-top:0.5rem">“' + r.text + '”</p>' +
+                    '<div class="testimonial-author"><div class="testimonial-avatar">' + initials + '</div><div>' +
+                    '<p class="testimonial-name">' + r.name + '</p><p class="testimonial-location">' + r.location + '</p></div></div></div>';
+            }).join('');
+
+            var wl = document.getElementById('hotelWishlist');
+            wl.setAttribute('data-id', 'hotel-' + hotel.id);
+            wl.setAttribute('data-title', hotel.name);
+            wl.setAttribute('data-type', 'hotel');
+            wl.setAttribute('data-image', hotel.image);
+            wl.setAttribute('data-price', '$' + hotel.price);
+            wl.setAttribute('data-location', hotel.location);
+
+            function refresh() {
+                if (typeof window.isInWishlist === 'function' && window.isInWishlist('hotel-' + hotel.id)) {
+                    wl.classList.add('active');
+                    wl.textContent = '♥ Saved to Wishlist';
+                } else {
+                    wl.classList.remove('active');
+                    wl.textContent = '♡ Save to Wishlist';
+                }
+            }
+            refresh();
+            wl.addEventListener('click', function () { setTimeout(refresh, 50); });
+        });
+    </script>
+</body>
+</html>

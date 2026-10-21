@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tour details - itinerary, inclusions, exclusions and pricing. Book your tour with Stackly.">
+    <title>Tour Details - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="detail-hero" id="detailHero">
+            <div class="container detail-hero-content">
+                <nav class="breadcrumbs" aria-label="Breadcrumb" style="justify-content:flex-start">
+                    <a href="index.html">Home</a> <span>/</span> <a href="tours.html">Tours</a> <span>/</span> <span id="crumbName">Tour</span>
+                </nav>
+                <h1 id="tourName">Tour</h1>
+                <div class="meta-info" id="tourMeta"></div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="detail-layout">
+                    <div>
+                        <div class="detail-section">
+                            <h2>Overview</h2>
+                            <p id="tourOverview"></p>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Itinerary</h2>
+                            <div id="tourItinerary"></div>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>What's Included</h2>
+                            <ul class="feature-list">
+                                <li>Accommodation in selected hotels</li>
+                                <li>Daily breakfast</li>
+                                <li>Professional local guide</li>
+                                <li>Airport transfers</li>
+                                <li>Entrance fees to listed attractions</li>
+                                <li>All transportation during the tour</li>
+                            </ul>
+                        </div>
+
+                        <div class="detail-section">
+                            <h2>Not Included</h2>
+                            <ul class="feature-list">
+                                <li>International flights</li>
+                                <li>Travel insurance</li>
+                                <li>Personal expenses</li>
+                                <li>Optional activities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <aside class="detail-sidebar">
+                        <div class="detail-card">
+                            <div class="card-price" style="font-size:1.75rem" id="tourPrice"></div>
+                            <p style="font-size:0.85rem">per person, based on double occupancy</p>
+                            <ul class="feature-list" style="grid-template-columns:1fr;margin:1rem 0">
+                                <li id="tourDurationItem">Duration</li>
+                                <li id="tourRatingItem">Rating</li>
+                                <li>Free cancellation (30 days)</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-accent btn-full btn-lg mb-sm" id="tourBook">Book Now</a>
+                            <a href="tours.html" class="btn btn-outline btn-full">Back to Tours</a>
+                            <button class="wishlist-btn" style="position:static;margin:1rem auto 0;width:100%;height:auto;border-radius:0.5rem;padding:0.75rem" id="tourWishlist" aria-label="Add to wishlist">♡ Save to Wishlist</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var params = new URLSearchParams(window.location.search);
+            var id = params.get('id') || 't1';
+            var data = window.STACKLY_DATA.tours;
+            var tour = data.find(function (t) { return t.id === id; }) || data[0];
+
+            document.title = tour.title + ' - Stackly Travel & Tourism';
+            document.getElementById('detailHero').style.backgroundImage =
+                'linear-gradient(to top, rgba(16,42,67,0.95), rgba(16,42,67,0.3) 60%, transparent), url(' + tour.image + ')';
+            document.getElementById('crumbName').textContent = tour.title;
+            document.getElementById('tourName').textContent = tour.title;
+            document.getElementById('tourMeta').innerHTML =
+                '<span class="meta-item">📍 ' + tour.destination + '</span>' +
+                '<span class="meta-item">⏱️ ' + tour.duration + ' Days</span>' +
+                '<span class="meta-item">⭐ ' + tour.rating + '</span>';
+            document.getElementById('tourOverview').textContent =
+                tour.description + ' This ' + tour.duration + '-day ' + tour.category + ' experience in ' + tour.destination +
+                ' is designed to balance guided activities with free time, so you can explore at your own pace.';
+            document.getElementById('tourPrice').innerHTML = '$' + tour.price.toLocaleString() + '<small>/person</small>';
+            document.getElementById('tourBook').href = 'booking.html?tour=' + tour.id;
+            document.getElementById('tourDurationItem').textContent = 'Duration: ' + tour.duration + ' Days';
+            document.getElementById('tourRatingItem').textContent = 'Rated ' + tour.rating + ' / 5';
+
+            var days = [];
+            var themes = ['Arrival & Welcome', 'Guided Exploration', 'Adventure Day', 'Cultural Immersion',
+                'Leisure & Free Time', 'Departure'];
+            for (var i = 1; i <= Math.min(tour.duration, 8); i++) {
+                var theme = themes[(i - 1) % themes.length];
+                days.push('<div class="itinerary-day"><div class="itinerary-day-number"><span>' + i + '</span>Day</div>' +
+                    '<div><h4>Day ' + i + ': ' + theme + '</h4>' +
+                    '<p style="margin:0">' + theme + ' in ' + tour.destination + '. Enjoy included activities, local cuisine and guided sightseeing.</p></div></div>');
+            }
+            document.getElementById('tourItinerary').innerHTML = days.join('');
+
+            var wl = document.getElementById('tourWishlist');
+            wl.setAttribute('data-id', 'tour-' + tour.id);
+            wl.setAttribute('data-title', tour.title);
+            wl.setAttribute('data-type', 'tour');
+            wl.setAttribute('data-image', tour.image);
+            wl.setAttribute('data-price', '$' + tour.price);
+
+            function refresh() {
+                if (typeof window.isInWishlist === 'function' && window.isInWishlist('tour-' + tour.id)) {
+                    wl.classList.add('active');
+                    wl.textContent = '♥ Saved to Wishlist';
+                } else {
+                    wl.classList.remove('active');
+                    wl.textContent = '♡ Save to Wishlist';
+                }
+            }
+            refresh();
+            wl.addEventListener('click', function () { setTimeout(refresh, 50); });
+        });
+    </script>
+</body>
+</html>

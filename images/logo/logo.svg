@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="60" viewBox="0 0 160 60">
+  <rect x="2" y="2" width="56" height="56" rx="14" fill="#087F8C"/>
+  <path d="M45 32v-3l-11-6.5v-6a2 2 0 0 0-4 0v6L19 29v3l11-3.5v8L26 39v2.5l6-1.5 6 1.5V39l-3-2.5v-8L45 32z" fill="#FF9F43"/>
+  <circle cx="48" cy="14" r="3" fill="#FF9F43" opacity="0.85"/>
+  <circle cx="54" cy="22" r="2" fill="#FF9F43" opacity="0.55"/>
+  <text x="66" y="38" font-family="Poppins, Arial, sans-serif" font-size="22" font-weight="700" fill="#087F8C">Stackly</text>
+</svg>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stackly travel guides - in-depth destination guides, itineraries, seasonal advice and local experiences.">
+    <title>Travel Guides - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="page-hero page-hero-travel-guides">
+            <div class="container">
+                <h1 class="scroll-animate">Travel Guides</h1>
+                <p class="scroll-animate">Everything you need to plan the perfect trip</p>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Travel Guides</span>
+                </nav>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Destination Guides</h2>
+                    <p class="section-subtitle">Expert advice, itineraries and local tips for each destination</p>
+                </div>
+                <div class="grid grid-3" id="guidesGrid"></div>
+            </div>
+        </section>
+
+        <section style="background:var(--white)">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Seasonal Recommendations</h2>
+                    <p class="section-subtitle">The best places to visit in every season</p>
+                </div>
+                <div class="grid grid-4">
+                    <div class="content-card scroll-animate fade-up"><h3>🌸 Spring</h3><p>Kyoto cherry blossoms and tulip fields of the Netherlands.</p></div>
+                    <div class="content-card scroll-animate fade-up" style="transition-delay:100ms"><h3>☀️ Summer</h3><p>Mediterranean beaches, Santorini sunsets and Swiss Alps hikes.</p></div>
+                    <div class="content-card scroll-animate fade-up" style="transition-delay:200ms"><h3>🍂 Autumn</h3><p>New England foliage, Italian harvests and Japan's red maples.</p></div>
+                    <div class="content-card scroll-animate fade-up" style="transition-delay:300ms"><h3>❄️ Winter</h3><p>Alpine ski resorts, Nordic lights and Dubai's warm escape.</p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const grid = document.getElementById('guidesGrid');
+            if (!grid || !window.STACKLY_DATA) return;
+            grid.innerHTML = window.STACKLY_DATA.destinations.map(dest => `
+                <article class="card blog-card scroll-animate fade-up">
+                    <div class="card-image">
+                        <img src="${dest.image}" alt="Guide to ${dest.name}" loading="lazy" width="800" height="500">
+                        <span class="card-badge">${dest.country}</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"><a href="destination-details.html?id=${dest.id}">${dest.name} Travel Guide</a></h3>
+                        <p class="card-description">Best time to visit, top attractions, food, culture and practical tips for ${dest.name}.</p>
+                        <div class="card-footer">
+                            <a href="destination-details.html?id=${dest.id}" class="btn btn-outline btn-sm">Read Guide <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                </article>`).join('');
+            if (typeof window.initScrollAnimations === 'function') window.initScrollAnimations();
+        });
+    </script>
+</body>
+</html>

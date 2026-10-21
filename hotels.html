@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find the perfect hotel or resort for your trip with Stackly. Filter by category, star rating and price.">
+    <title>Hotels & Resorts - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="page-hero page-hero-hotels">
+            <div class="container">
+                <h1 class="scroll-animate">Hotels &amp; Resorts</h1>
+                <p class="scroll-animate">Handpicked stays for every style and budget</p>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Hotels</span>
+                </nav>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="filters-bar">
+                    <div class="filter-group" role="group" aria-label="Hotel categories">
+                        <button class="filter-btn hotel-filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn hotel-filter-btn" data-filter="beach">Beach</button>
+                        <button class="filter-btn hotel-filter-btn" data-filter="city">City</button>
+                        <button class="filter-btn hotel-filter-btn" data-filter="mountain">Mountain</button>
+                    </div>
+                    <div class="filter-selects">
+                        <label class="sr-only" for="star-filter">Minimum rating</label>
+                        <select id="star-filter">
+                            <option value="all">All Ratings</option>
+                            <option value="4.5">4.5★ &amp; up</option>
+                            <option value="4.7">4.7★ &amp; up</option>
+                            <option value="4.8">4.8★ &amp; up</option>
+                        </select>
+                        <label class="sr-only" for="hotel-sort">Sort hotels</label>
+                        <select id="hotel-sort">
+                            <option value="popular">Most Popular</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                        <label for="hotel-price-range">Max price: <span id="hotel-price-value">$600</span></label>
+                        <input type="range" id="hotel-price-range" min="100" max="600" value="600" step="20" aria-label="Maximum nightly price">
+                    </div>
+                </div>
+
+                <div class="grid grid-3 hotels-grid" id="hotelsGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/hotels.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/destinations.js"></script>
+</body>
+</html>

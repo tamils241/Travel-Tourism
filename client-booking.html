@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your bookings - Stackly Travel & Tourism.">
+    <title>My Bookings - Client Dashboard | Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+
+    <header class="dashboard-topbar">
+        <div class="container dashboard-topbar-inner">
+            <a href="index.html" class="logo" aria-label="Stackly Travel & Tourism Home">
+                <span class="logo-icon" aria-hidden="true">
+                    <img src="images/logo/logo.webp" alt="Stackly logo" width="120" height="45">
+                </span>
+            </a>
+            <div class="dashboard-topbar-user">
+                <span class="dashboard-topbar-name">Sarah Traveler</span>
+                <a href="login.html" class="btn btn-outline btn-sm">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="dashboard-page">
+            <div class="container">
+                <div class="dashboard-layout">
+                    <aside class="dashboard-sidebar">
+                        <div class="dashboard-profile">
+                            <div class="dashboard-avatar" aria-hidden="true">ST</div>
+                            <h3>Sarah Traveler</h3>
+                            <p>sarah@example.com</p>
+                        </div>
+                        <nav aria-label="Dashboard navigation">
+                            <ul class="dashboard-nav">
+                                <li><a href="client-dashboard.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard</a></li>
+                                <li><a href="client-booking.html" class="active"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> My Bookings</a></li>
+                                <li><a href="client-wishlist.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg> Wishlist</a></li>
+                                <li><a href="client-destinations.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Destinations</a></li>
+                                <li><a href="client-tours.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Browse Tours</a></li>
+                                <li><a href="login.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+
+                    <div class="dashboard-main">
+                        <div class="dashboard-header">
+                            <div>
+                                <h1>My Bookings</h1>
+                                <p>Track upcoming, completed and cancelled trips.</p>
+                            </div>
+                            <div class="dashboard-actions">
+                                <a href="booking.html" class="btn btn-primary">Book a Trip</a>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-grid">
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <h3>Upcoming Trips</h3>
+                                <div class="dashboard-value">2</div>
+                                <span class="dashboard-trend">Next: Nov 12</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                </div>
+                                <h3>Completed</h3>
+                                <div class="dashboard-value">7</div>
+                                <span class="dashboard-trend">Lifetime journeys</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon accent" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                </div>
+                                <h3>Total Spent</h3>
+                                <div class="dashboard-value">$9,860</div>
+                                <span class="dashboard-trend">Across all trips</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon accent" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                                </div>
+                                <h3>Reward Points</h3>
+                                <div class="dashboard-value">1,240</div>
+                                <span class="dashboard-trend">+120 this month</span>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-section">
+                            <div class="dashboard-section-head">
+                                <h2>Booking History</h2>
+                            </div>
+                            <div class="dashboard-toolbar">
+                                <input type="search" class="form-input" placeholder="Search bookings" aria-label="Search bookings">
+                                <select class="form-input small" aria-label="Filter by status">
+                                    <option value="">All Statuses</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="table-wrap">
+                                <table class="dashboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Trip</th>
+                                            <th>Destination</th>
+                                            <th>Dates</th>
+                                            <th>Guests</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bali Adventure</td>
+                                            <td>Bali, Indonesia</td>
+                                            <td>Nov 12 &ndash; 18, 2026</td>
+                                            <td>2</td>
+                                            <td>$2,598</td>
+                                            <td><span class="dashboard-badge confirmed">Confirmed</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Booking details (demo).', 'success')">View</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maldives Honeymoon</td>
+                                            <td>Maldives</td>
+                                            <td>Dec 24 &ndash; 30, 2026</td>
+                                            <td>2</td>
+                                            <td>$4,998</td>
+                                            <td><span class="dashboard-badge pending">Pending</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Booking details (demo).', 'success')">View</button><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Booking cancelled (demo).', 'warning')">Cancel</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Paris City Break</td>
+                                            <td>Paris, France</td>
+                                            <td>May 3 &ndash; 7, 2026</td>
+                                            <td>2</td>
+                                            <td>$1,598</td>
+                                            <td><span class="dashboard-badge confirmed">Completed</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Booking details (demo).', 'success')">View</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Swiss Alps Adventure</td>
+                                            <td>Swiss Alps</td>
+                                            <td>Feb 8 &ndash; 14, 2026</td>
+                                            <td>2</td>
+                                            <td>$3,798</td>
+                                            <td><span class="dashboard-badge confirmed">Completed</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Booking details (demo).', 'success')">View</button></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kyoto Cultural Journey</td>
+                                            <td>Kyoto, Japan</td>
+                                            <td>Oct 1 &ndash; 5, 2025</td>
+                                            <td>1</td>
+                                            <td>$1,450</td>
+                                            <td><span class="dashboard-badge cancelled">Cancelled</span></td>
+                                            <td><div class="table-actions"><button type="button" class="btn btn-outline btn-xs" onclick="showToast('Booking details (demo).', 'success')">View</button></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+</html>

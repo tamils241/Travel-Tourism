@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse the Stackly travel photo gallery - beaches, mountains, cities and cultural wonders from around the world.">
+    <title>Gallery - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="page-hero page-hero-gallery">
+            <div class="container">
+                <h1 class="scroll-animate">Travel Gallery</h1>
+                <p class="scroll-animate">A visual journey through the world's most beautiful places</p>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Gallery</span>
+                </nav>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="filters-bar" style="justify-content:center">
+                    <div class="filter-group" role="group" aria-label="Gallery filters">
+                        <button class="filter-btn gallery-filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn gallery-filter-btn" data-filter="beach">Beach</button>
+                        <button class="filter-btn gallery-filter-btn" data-filter="mountain">Mountain</button>
+                        <button class="filter-btn gallery-filter-btn" data-filter="city">City</button>
+                        <button class="filter-btn gallery-filter-btn" data-filter="cultural">Cultural</button>
+                    </div>
+                </div>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/data.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

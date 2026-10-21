@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stackly - Premium Travel & Tourism Website. Discover extraordinary destinations, book tours, find hotels, and plan your next adventure.">
+    <title>Stackly - Travel & Tourism</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Skip to Content -->
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo"
+               aria-label="Stackly Travel & Tourism Home">
+
+                <span class="logo-icon" aria-hidden="true">
+                    <img src="images/logo/logo.webp"
+                         alt="Stackly logo"
+                         width="120"
+                         height="45">
+                </span>
+
+            </a>
+            
+            <ul class="nav-menu" role="menu">
+                <li class="nav-item" role="none">
+                    <a href="index.html" class="nav-link" role="menuitem">Home</a>
+                </li>
+                <li class="nav-item dropdown" role="none">
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Destinations</button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="destinations.html" role="menuitem">All Destinations</a></li>
+                        <li role="none"><a href="destination-details.html?id=bali" role="menuitem">Bali, Indonesia</a></li>
+                        <li role="none"><a href="destination-details.html?id=maldives" role="menuitem">Maldives</a></li>
+                        <li role="none"><a href="destination-details.html?id=paris" role="menuitem">Paris, France</a></li>
+                        <li role="none"><a href="destination-details.html?id=kyoto" role="menuitem">Kyoto, Japan</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown" role="none">
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Tours</button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="tours.html" role="menuitem">All Tours</a></li>
+                        <li role="none"><a href="tours.html?cat=adventure" role="menuitem">Adventure</a></li>
+                        <li role="none"><a href="tours.html?cat=honeymoon" role="menuitem">Honeymoon</a></li>
+                        <li role="none"><a href="tours.html?cat=family" role="menuitem">Family</a></li>
+                        <li role="none"><a href="tours.html?cat=luxury" role="menuitem">Luxury</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="hotels.html" class="nav-link" role="menuitem">Hotels</a>
+                </li>
+                <li class="nav-item dropdown" role="none">
+                    <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Guides</button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none"><a href="travel-guides.html" role="menuitem">Travel Guides</a></li>
+                        <li role="none"><a href="blog.html" role="menuitem">Travel Blog</a></li>
+                        <li role="none"><a href="gallery.html" role="menuitem">Gallery</a></li>
+                        <li role="none"><a href="testimonials.html" role="menuitem">Testimonials</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="about.html" class="nav-link" role="menuitem">About</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="contact.html" class="nav-link" role="menuitem">Contact</a>
+                </li>
+            </ul>
+            
+            <div class="header-actions">
+                <button class="header-icon-btn" id="searchBtn" aria-label="Search">
+                    <svg width="21" height="21" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m16 16 4 4"></path>
+                    </svg>
+                </button>
+                <a href="wishlist.html" class="header-icon-btn" aria-label="Wishlist">
+                    <svg width="21" height="21" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1
+                                 a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5
+                                 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path>
+                    </svg>
+                    <span class="wishlist-count">0</span>
+                </a>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="booking.html" class="btn-cta">Plan Your Trip</a>
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo">
+                <span class="mobile-menu-logo-icon" aria-hidden="true">
+                    <img src="images/logo/logo.webp"
+                         alt="Stackly logo"
+                         width="120"
+                         height="45">
+                </span>
+            </a>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+        </div>
+        <nav class="mobile-menu-body">
+            <ul class="mobile-menu-list">
+                <li><a href="index.html" class="mobile-menu-link">Home</a></li>
+                <li>
+                    <button class="mobile-dropdown-toggle">
+                        Destinations
+                        <span class="arrow">▾</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="destinations.html">All Destinations</a></li>
+                        <li><a href="destination-details.html?id=bali">Bali, Indonesia</a></li>
+                        <li><a href="destination-details.html?id=maldives">Maldives</a></li>
+                        <li><a href="destination-details.html?id=paris">Paris, France</a></li>
+                        <li><a href="destination-details.html?id=kyoto">Kyoto, Japan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-dropdown-toggle">
+                        Tours
+                        <span class="arrow">▾</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="tours.html">All Tours</a></li>
+                        <li><a href="tours.html?cat=adventure">Adventure</a></li>
+                        <li><a href="tours.html?cat=honeymoon">Honeymoon</a></li>
+                        <li><a href="tours.html?cat=family">Family</a></li>
+                        <li><a href="tours.html?cat=luxury">Luxury</a></li>
+                    </ul>
+                </li>
+                <li><a href="hotels.html" class="mobile-menu-link">Hotels</a></li>
+                <li>
+                    <button class="mobile-dropdown-toggle">
+                        Guides
+                        <span class="arrow">▾</span>
+                    </button>
+                    <ul class="mobile-dropdown-menu">
+                        <li><a href="travel-guides.html">Travel Guides</a></li>
+                        <li><a href="blog.html">Travel Blog</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="mobile-menu-link">About</a></li>
+                <li><a href="contact.html" class="mobile-menu-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu-actions">
+            <a href="login.html" class="btn btn-outline btn-full">Login</a>
+            <a href="booking.html" class="btn btn-accent btn-full">Plan Your Trip</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero-slider" id="home">
+            <!-- Background slides -->
+            <div class="hero-bg active"
+                 style="background-image: url('images/travel-1.webp')"></div>
+
+            <div class="hero-bg"
+                 style="background-image: url('images/travel-2.webp')"></div>
+
+            <div class="hero-bg"
+                 style="background-image: url('images/travel-3.webp')"></div>
+
+            <!-- Hero content -->
+            <div class="hero-content">
+                <p class="hero-subtitle">
+                    DISCOVER THE WORLD WITH STACKLY
+                </p>
+
+                <h1>
+                    Your Next<br>
+                    Adventure Starts<br>
+                    Here
+                </h1>
+
+                <p class="hero-description">
+                    Explore extraordinary destinations, discover unforgettable
+                    experiences, and travel beyond the ordinary.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="destinations.html" class="btn-primary">
+                        Explore Destinations →
+                    </a>
+
+                    <a href="tours.html" class="btn-outline">
+                        Discover Our Tours
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide indicators only: no arrow buttons -->
+            <div class="slide-dots">
+                <button class="slide-dot active" data-slide="0"
+                        aria-label="Show slide 1"></button>
+                <button class="slide-dot" data-slide="1"
+                        aria-label="Show slide 2"></button>
+                <button class="slide-dot" data-slide="2"
+                        aria-label="Show slide 3"></button>
+            </div>
+        </section>
+        
+        <!-- Hero Search -->
+        <section class="hero-search">
+            <div class="container">
+                <div class="hero-search-panel">
+                    <h2 class="hero-search-title">Find Your Perfect Trip</h2>
+                    <form class="hero-search-form" novalidate>
+                        <div class="search-field">
+                            <label for="destination" class="search-label">Destination</label>
+                            <input type="text" id="destination" class="search-input" placeholder="Where to go?" required>
+                        </div>
+                        <div class="search-field">
+                            <label for="travel-date" class="search-label">Travel Date</label>
+                            <input type="date" id="travel-date" class="search-input" required>
+                        </div>
+                        <div class="search-field">
+                            <label for="travelers" class="search-label">Travelers</label>
+                            <select id="travelers" class="search-select" required>
+                                <option value="">Select</option>
+                                <option value="1">1 Traveler</option>
+                                <option value="2">2 Travelers</option>
+                                <option value="3">3 Travelers</option>
+                                <option value="4">4 Travelers</option>
+                                <option value="5+">5+ Travelers</option>
+                            </select>
+                        </div>
+                        <div class="search-field">
+                            <label for="trip-category" class="search-label">Category</label>
+                            <select id="trip-category" class="search-select">
+                                <option value="">All Categories</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="honeymoon">Honeymoon</option>
+                                <option value="family">Family</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="beach">Beach</option>
+                                <option value="cultural">Cultural</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-accent search-btn">
+                            Search <span class="arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Destinations -->
+        <section class="featured-destinations">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Featured Destinations</h2>
+                    <p class="section-subtitle">Explore our handpicked destinations around the world</p>
+                </div>
+                <div class="grid grid-3">
+                    <article class="card destination-card scroll-animate fade-up card-3d" data-id="bali" data-title="Bali, Indonesia" data-type="destination" data-image="images/library/photo-1537953773345-d172ccf13cf1.webp" data-location="Indonesia" data-price="$1,299">
+                        <div class="card-3d-inner">
+                            <div class="card-3d-content">
+                                <button class="wishlist-btn" data-id="dest-bali" data-title="Bali, Indonesia" data-type="destination" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                                <div class="card-image">
+                                    <img src="images/library/photo-1537953773345-d172ccf13cf1.webp" alt="Bali, Indonesia - Tropical beach with temples" loading="lazy">
+                                    <span class="card-badge">Popular</span>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title"><a href="destination-details.html?id=bali">Bali, Indonesia</a></h3>
+                                    <p class="card-description">Island of gods with stunning beaches, temples, and vibrant culture.</p>
+                                    <div class="meta-info">
+                                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 7-10 Days</span>
+                                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.8 (420)</span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">$1,299<small>/person</small></div>
+                                        <a href="destination-details.html?id=bali" class="btn btn-outline btn-sm">Explore</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card destination-card scroll-animate fade-up card-3d" style="transition-delay: 100ms" data-id="maldives" data-title="Maldives" data-type="destination" data-image="images/library/photo-1514282401047-d79a71a590e8.webp" data-location="Maldives" data-price="$2,499">
+                        <div class="card-3d-inner">
+                            <div class="card-3d-content">
+                                <button class="wishlist-btn" data-id="dest-maldives" data-title="Maldives" data-type="destination" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                                <div class="card-image">
+                                    <img src="images/library/photo-1514282401047-d79a71a590e8.webp" alt="Maldives - Overwater bungalows" loading="lazy">
+                                    <span class="card-badge green">Luxury</span>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title"><a href="destination-details.html?id=maldives">Maldives</a></h3>
+                                    <p class="card-description">Pristine waters, overwater villas, and ultimate relaxation.</p>
+                                    <div class="meta-info">
+                                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 5-7 Days</span>
+                                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9 (280)</span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">$2,499<small>/person</small></div>
+                                        <a href="destination-details.html?id=maldives" class="btn btn-outline btn-sm">Explore</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card destination-card scroll-animate fade-up card-3d" style="transition-delay: 200ms" data-id="paris" data-title="Paris, France" data-type="destination" data-image="images/library/photo-1502602898657-3e91760cbb34.webp" data-location="France" data-price="$1,599">
+                        <div class="card-3d-inner">
+                            <div class="card-3d-content">
+                                <button class="wishlist-btn" data-id="dest-paris" data-title="Paris, France" data-type="destination" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                                <div class="card-image">
+                                    <img src="images/library/photo-1502602898657-3e91760cbb34.webp" alt="Paris, France - Eiffel Tower" loading="lazy">
+                                    <span class="card-badge">Romantic</span>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="card-title"><a href="destination-details.html?id=paris">Paris, France</a></h3>
+                                    <p class="card-description">City of lights with art, culture, and romantic charm.</p>
+                                    <div class="meta-info">
+                                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> 4-6 Days</span>
+                                        <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.7 (380)</span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="card-price">$1,599<small>/person</small></div>
+                                        <a href="destination-details.html?id=paris" class="btn btn-outline btn-sm">Explore</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center mt-xl scroll-animate">
+                    <a href="destinations.html" class="btn btn-primary btn-lg">
+                        View All Destinations <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Popular Tours -->
+        <section class="popular-tours" style="background: var(--white)">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Popular Tour Packages</h2>
+                    <p class="section-subtitle">Unforgettable experiences crafted just for you</p>
+                </div>
+                <div class="grid grid-3">
+                    <article class="card tour-card scroll-animate fade-up" data-id="t1" data-title="Bali Adventure Tour" data-type="tour" data-image="images/library/photo-1537953773345-d172ccf13cf1.webp" data-price="$1,299" data-duration="7" data-category="adventure" data-rating="4.8">
+                        <button class="wishlist-btn" data-id="tour-bali-adv" data-title="Bali Adventure Tour" data-type="tour" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                        <div class="card-image">
+                            <img src="images/library/photo-1537953773345-d172ccf13cf1.webp" alt="Bali Adventure Tour" loading="lazy">
+                            <span class="card-badge">Adventure</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="meta-info">
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 7 Days</span>
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bali</span>
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.8</span>
+                            </div>
+                            <h3 class="card-title"><a href="tour-details.html?id=t1">Bali Adventure Tour</a></h3>
+                            <p class="card-description">Hiking, surfing, temples, and local culture.</p>
+                            <div class="card-footer">
+                                <div class="card-price">$1,299<small>/person</small></div>
+                                <div class="card-actions">
+                                    <a href="tour-details.html?id=t1" class="btn btn-outline btn-sm">View Details</a>
+                                    <a href="booking.html?tour=t1" class="btn btn-accent btn-sm">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card tour-card scroll-animate fade-up" style="transition-delay: 100ms" data-id="t2" data-title="Maldives Honeymoon" data-type="tour" data-image="images/library/photo-1514282401047-d79a71a590e8.webp" data-price="$2,499" data-duration="5" data-category="honeymoon" data-rating="4.9">
+                        <button class="wishlist-btn" data-id="tour-maldives-hm" data-title="Maldives Honeymoon" data-type="tour" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                        <div class="card-image">
+                            <img src="images/library/photo-1514282401047-d79a71a590e8.webp" alt="Maldives Honeymoon" loading="lazy">
+                            <span class="card-badge green">Honeymoon</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="meta-info">
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 5 Days</span>
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Maldives</span>
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.9</span>
+                            </div>
+                            <h3 class="card-title"><a href="tour-details.html?id=t2">Maldives Honeymoon Package</a></h3>
+                            <p class="card-description">Romantic overwater villa with spa and candlelight dinner.</p>
+                            <div class="card-footer">
+                                <div class="card-price">$2,499<small>/person</small></div>
+                                <div class="card-actions">
+                                    <a href="tour-details.html?id=t2" class="btn btn-outline btn-sm">View Details</a>
+                                    <a href="booking.html?tour=t2" class="btn btn-accent btn-sm">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card tour-card scroll-animate fade-up" style="transition-delay: 200ms" data-id="t3" data-title="Paris City Escape" data-type="tour" data-image="images/library/photo-1502602898657-3e91760cbb34.webp" data-price="$1,599" data-duration="4" data-category="cultural" data-rating="4.7">
+                        <button class="wishlist-btn" data-id="tour-paris-escape" data-title="Paris City Escape" data-type="tour" aria-label="Add to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                        <div class="card-image">
+                            <img src="images/library/photo-1502602898657-3e91760cbb34.webp" alt="Paris City Escape" loading="lazy">
+                            <span class="card-badge">Cultural</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="meta-info">
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 4 Days</span>
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Paris</span>
+                                <span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbf24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.7</span>
+                            </div>
+                            <h3 class="card-title"><a href="tour-details.html?id=t3">Paris City Escape</a></h3>
+                            <p class="card-description">Museum tours, Seine cruise, and iconic landmarks.</p>
+                            <div class="card-footer">
+                                <div class="card-price">$1,599<small>/person</small></div>
+                                <div class="card-actions">
+                                    <a href="tour-details.html?id=t3" class="btn btn-outline btn-sm">View Details</a>
+                                    <a href="booking.html?tour=t3" class="btn btn-accent btn-sm">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center mt-xl scroll-animate">
+                    <a href="tours.html" class="btn btn-primary btn-lg">
+                        View All Tours <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Experiences -->
+        <section class="travel-experiences" style="background: var(--secondary); color: var(--white);">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title" style="color: var(--white);">Travel Experiences</h2>
+                    <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Adrenaline, culture and relaxation — find your kind of adventure</p>
+                </div>
+                <div class="grid grid-3">
+                    <a href="tours.html?cat=adventure" class="experience-card scroll-animate zoom card-3d" style="position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;min-height:240px">
+                        <div class="card-3d-inner" style="height:100%">
+                            <img src="images/library/photo-1516426122078-c23e76319801.webp" alt="Mountain trekking experience" loading="lazy" style="width:100%;height:100%;min-height:240px;object-fit:cover">
+                            <span class="card-overlay"><strong style="font-size:1.25rem">Mountain Trekking</strong><small>Conquer breathtaking peaks</small></span>
+                        </div>
+                    </a>
+                    <a href="tours.html?cat=adventure" class="experience-card scroll-animate zoom card-3d" style="position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;min-height:240px;transition-delay:100ms">
+                        <div class="card-3d-inner" style="height:100%">
+                            <img src="images/library/photo-1544551763-46a013bb70d5.webp" alt="Scuba diving experience" loading="lazy" style="width:100%;height:100%;min-height:240px;object-fit:cover">
+                            <span class="card-overlay"><strong style="font-size:1.25rem">Scuba Diving</strong><small>Explore vibrant coral reefs</small></span>
+                        </div>
+                    </a>
+                    <a href="tours.html?cat=adventure" class="experience-card scroll-animate zoom card-3d" style="position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;min-height:240px;transition-delay:200ms">
+                        <div class="card-3d-inner" style="height:100%">
+                            <img src="images/library/photo-1451337516015-6b6e9a44a8a3.webp" alt="Desert safari experience" loading="lazy" style="width:100%;height:100%;min-height:240px;object-fit:cover">
+                            <span class="card-overlay"><strong style="font-size:1.25rem">Desert Safaris</strong><small>Dunes, camels and starlit camps</small></span>
+                        </div>
+                    </a>
+                    <a href="blog.html" class="experience-card scroll-animate zoom card-3d" style="position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;min-height:240px">
+                        <div class="card-3d-inner" style="height:100%">
+                            <img src="images/library/photo-1470071459604-3b5ec3a7fe05.webp" alt="Wildlife photography experience" loading="lazy" style="width:100%;height:100%;min-height:240px;object-fit:cover">
+                            <span class="card-overlay"><strong style="font-size:1.25rem">Wildlife Photography</strong><small>Capture nature up close</small></span>
+                        </div>
+                    </a>
+                    <a href="tours.html?cat=cultural" class="experience-card scroll-animate zoom card-3d" style="position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;min-height:240px;transition-delay:100ms">
+                        <div class="card-3d-inner" style="height:100%">
+                            <img src="images/library/photo-1493976040374-85c8e12f0c0e.webp" alt="Cultural tours experience" loading="lazy" style="width:100%;height:100%;min-height:240px;object-fit:cover">
+                            <span class="card-overlay"><strong style="font-size:1.25rem">Cultural Tours</strong><small>Immerse in local traditions</small></span>
+                        </div>
+                    </a>
+                    <a href="tours.html?cat=luxury" class="experience-card scroll-animate zoom card-3d" style="position:relative;display:block;border-radius:var(--radius-lg);overflow:hidden;min-height:240px;transition-delay:200ms">
+                        <div class="card-3d-inner" style="height:100%">
+                            <img src="images/library/photo-1548574505-5e239809ee19.webp" alt="Cruise vacation experience" loading="lazy" style="width:100%;height:100%;min-height:240px;object-fit:cover">
+                            <span class="card-overlay"><strong style="font-size:1.25rem">Cruise Vacations</strong><small>Luxury on the open sea</small></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats / Counters -->
+        <section class="stats-band" style="background: var(--background);">
+            <div class="container">
+                <div class="grid grid-4 text-center">
+                    <div class="scroll-animate fade-up">
+                        <div style="font-size:clamp(2rem,4vw,2.75rem);font-weight:700;font-family:var(--heading-font);color:var(--primary)"><span class="counter-number" data-target="50">0</span>+</div>
+                        <p>Destinations</p>
+                    </div>
+                    <div class="scroll-animate fade-up" style="transition-delay:100ms">
+                        <div style="font-size:clamp(2rem,4vw,2.75rem);font-weight:700;font-family:var(--heading-font);color:var(--primary)"><span class="counter-number" data-target="200">0</span>+</div>
+                        <p>Tours &amp; Experiences</p>
+                    </div>
+                    <div class="scroll-animate fade-up" style="transition-delay:200ms">
+                        <div style="font-size:clamp(2rem,4vw,2.75rem);font-weight:700;font-family:var(--heading-font);color:var(--primary)"><span class="counter-number" data-target="10000">0</span>+</div>
+                        <p>Happy Travelers</p>
+                    </div>
+                    <div class="scroll-animate fade-up" style="transition-delay:300ms">
+                        <div style="font-size:clamp(2rem,4vw,2.75rem);font-weight:700;font-family:var(--heading-font);color:var(--primary)"><span class="counter-number" data-target="15">0</span>+</div>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Why Choose Stackly</h2>
+                    <p class="section-subtitle">Your trusted partner for extraordinary travel experiences</p>
+                </div>
+                <div class="grid grid-3">
+                    <div class="benefit-card scroll-animate fade-up card-3d">
+                        <div class="card-3d-inner">
+                            <div class="card-3d-content">
+                                <div class="benefit-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                                <h3 class="benefit-title">Carefully Selected Destinations</h3>
+                                <p class="benefit-description">Handpicked locations that offer unique experiences and unforgettable memories.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-card scroll-animate fade-up card-3d" style="transition-delay: 100ms">
+                        <div class="card-3d-inner">
+                            <div class="card-3d-content">
+                                <div class="benefit-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                                <h3 class="benefit-title">Personalized Itineraries</h3>
+                                <p class="benefit-description">Tailored travel plans that match your preferences, pace, and budget.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="benefit-card scroll-animate fade-up card-3d" style="transition-delay: 200ms">
+                        <div class="card-3d-inner">
+                            <div class="card-3d-content">
+                                <div class="benefit-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9l4-6z"/><path d="M2 9h20M12 22V9M8 3l-2 6 6 13 6-13-2-6"/></svg></div>
+                                <h3 class="benefit-title">Transparent Pricing</h3>
+                                <p class="benefit-description">No hidden fees. Clear, upfront pricing for all our services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Hotels -->
+        <section class="featured-hotels">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Featured Hotels &amp; Resorts</h2>
+                    <p class="section-subtitle">Exceptional stays for an unforgettable trip</p>
+                </div>
+                <div class="grid grid-3">
+                    <article class="card hotel-card scroll-animate fade-up">
+                        <button class="wishlist-btn" data-id="hotel-azure" data-title="Azure Bay Resort" data-type="hotel" data-image="images/library/photo-1571003123894-1f0594d2b5d9.webp" data-price="$220" aria-label="Add Azure Bay Resort to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                        <div class="card-image"><img src="images/library/photo-1571003123894-1f0594d2b5d9.webp" alt="Azure Bay Resort, Bali" loading="lazy"></div>
+                        <div class="card-content">
+                            <div class="meta-info"><span class="meta-item"><svg width="70" height="14" viewBox="0 0 70 14" fill="#fbbf24" aria-hidden="true"><path d="M7 1l1.8 3.7 4 .6-2.9 2.8.7 4L7 10.3 3.4 12.1l.7-4L1.2 5.3l4-.6L7 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L21 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L21 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L35 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L35 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L49 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L49 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L63 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L63 1z"/></svg> 4.8</span><span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bali, Indonesia</span></div>
+                            <h3 class="card-title"><a href="hotel-details.html?id=h1">Azure Bay Resort</a></h3>
+                            <p class="card-description">Free WiFi · Pool · Spa · Breakfast</p>
+                            <div class="card-footer">
+                                <div class="card-price">$220<small>/night</small></div>
+                                <a href="hotel-details.html?id=h1" class="btn btn-outline btn-sm">View Hotel</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card hotel-card scroll-animate fade-up" style="transition-delay:100ms">
+                        <button class="wishlist-btn" data-id="hotel-coral" data-title="Coral Grand Maldives" data-type="hotel" data-image="images/library/photo-1439066615861-d1af74d74000.webp" data-price="$540" aria-label="Add Coral Grand Maldives to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                        <div class="card-image"><img src="images/library/photo-1439066615861-d1af74d74000.webp" alt="Coral Grand Maldives" loading="lazy"></div>
+                        <div class="card-content">
+                            <div class="meta-info"><span class="meta-item"><svg width="70" height="14" viewBox="0 0 70 14" fill="#fbbf24" aria-hidden="true"><path d="M7 1l1.8 3.7 4 .6-2.9 2.8.7 4L7 10.3 3.4 12.1l.7-4L1.2 5.3l4-.6L7 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L21 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L21 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L35 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L35 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L49 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L49 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L63 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L63 1z"/></svg> 4.9</span><span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Maldives</span></div>
+                            <h3 class="card-title"><a href="hotel-details.html?id=h2">Coral Grand Maldives</a></h3>
+                            <p class="card-description">Free WiFi · Private Beach · Spa · Diving</p>
+                            <div class="card-footer">
+                                <div class="card-price">$540<small>/night</small></div>
+                                <a href="hotel-details.html?id=h2" class="btn btn-outline btn-sm">View Hotel</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card hotel-card scroll-animate fade-up" style="transition-delay:200ms">
+                        <button class="wishlist-btn" data-id="hotel-maison" data-title="Maison Lumière" data-type="hotel" data-image="images/library/photo-1566073771259-6a8506099945.webp" data-price="$310" aria-label="Add Maison Lumière to wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"></path></svg></button>
+                        <div class="card-image"><img src="images/library/photo-1566073771259-6a8506099945.webp" alt="Maison Lumière, Paris" loading="lazy"></div>
+                        <div class="card-content">
+                            <div class="meta-info"><span class="meta-item"><svg width="70" height="14" viewBox="0 0 70 14" fill="#fbbf24" aria-hidden="true"><path d="M7 1l1.8 3.7 4 .6-2.9 2.8.7 4L7 10.3 3.4 12.1l.7-4L1.2 5.3l4-.6L7 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L21 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L21 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L35 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L35 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L49 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L49 1zm14 0l1.8 3.7 4 .6-2.9 2.8.7 4L63 10.3l-3.6 1.8.7-4-2.9-2.8 4-.6L63 1z"/></svg> 4.7</span><span class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Paris, France</span></div>
+                            <h3 class="card-title"><a href="hotel-details.html?id=h3">Maison Lumière</a></h3>
+                            <p class="card-description">Free WiFi · Restaurant · Bar · Concierge</p>
+                            <div class="card-footer">
+                                <div class="card-price">$310<small>/night</small></div>
+                                <a href="hotel-details.html?id=h3" class="btn btn-outline btn-sm">View Hotel</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="text-center mt-xl scroll-animate">
+                    <a href="hotels.html" class="btn btn-primary btn-lg">View All Hotels <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section" style="background: var(--white);">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">What Our Travelers Say</h2>
+                    <p class="section-subtitle">Real stories from real journeys</p>
+                </div>
+                <div class="testimonials-carousel" aria-label="Customer testimonials">
+                    <div class="testimonials-track"></div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-nav testimonial-prev" aria-label="Previous testimonial">‹</button>
+                    <div class="testimonial-dots" role="tablist" aria-label="Testimonial pages"></div>
+                    <button class="testimonial-nav testimonial-next" aria-label="Next testimonial">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Inspiration -->
+        <section class="travel-inspiration">
+            <div class="container">
+                <div class="section-header scroll-animate">
+                    <h2 class="section-title">Travel Inspiration</h2>
+                    <p class="section-subtitle">Stories, tips and ideas for your next journey</p>
+                </div>
+                <div class="grid grid-3" id="inspirationGrid"></div>
+                <div class="text-center mt-xl scroll-animate">
+                    <a href="blog.html" class="btn btn-primary btn-lg">Visit Our Blog <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: var(--space-2xl) 0; color: var(--white);">
+            <div class="container">
+                <div class="newsletter-content text-center">
+                    <h2 class="newsletter-title" style="color: var(--white);">Subscribe to Our Newsletter</h2>
+                    <p class="newsletter-subtitle" style="color: rgba(255,255,255,0.9);">Get the latest travel inspiration, deals, and updates</p>
+                    <form class="newsletter-form" novalidate style="display: flex; gap: var(--space-sm); max-width: 500px; margin: var(--space-md) auto; flex-wrap: wrap; justify-content: center;">
+                        <input type="email" class="newsletter-email form-input" placeholder="Enter your email" style="flex: 1; min-width: 200px;">
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                        <div class="newsletter-error form-error"></div>
+                        <div class="newsletter-success form-success"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <a href="index.html" class="logo" style="margin-bottom: var(--space-md);">
+                    <span class="logo-icon" aria-hidden="true">
+                    <img src="images/logo/logo.webp"
+                         alt="Stackly logo"
+                         width="120"
+                         height="45">
+                </span>
+                    </a>
+                    <p class="footer-description">Your trusted partner for extraordinary travel experiences. Discover, explore, and create unforgettable memories with Stackly.</p>
+                    <div class="footer-social">
+                        <a href="404.html" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+                        <a href="404.html" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="404.html" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                        <a href="404.html" class="social-link" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33zM9.75 15.02V8.48l5.75 3.27-5.75 3.27z"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="tours.html">Tours</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 123 Travel Street, City, Country</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.32 1.54.55 2.35.68A2 2 0 0 1 22 16.92z"/></svg> +1 (555) 123-4567</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg> info@stackly.com</li>
+                        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon-Sun: 9:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 Stackly Travel & Tourism. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+    
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/hero-slider.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/destinations.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/faq.js"></script>
+    <script>
+        /* Travel Inspiration section - latest blog posts */
+        document.addEventListener('DOMContentLoaded', function () {
+            var grid = document.getElementById('inspirationGrid');
+            if (!grid || !window.STACKLY_DATA) return;
+            grid.innerHTML = window.STACKLY_DATA.blog.slice(0, 3).map(function (post) {
+                return '<article class="card blog-card scroll-animate fade-up">' +
+                    '<div class="card-image"><img src="' + post.image + '" alt="' + post.title + '" loading="lazy" width="800" height="500"><span class="card-badge blue">' + post.category + '</span></div>' +
+                    '<div class="card-content"><div class="post-meta"><span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> ' + post.author + '</span><span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> ' + post.date + '</span></div>' +
+                    '<h3 class="card-title"><a href="blog-details.html?id=' + post.id + '">' + post.title + '</a></h3>' +
+                    '<p class="card-description">' + post.excerpt + '</p>' +
+                    '<div class="card-footer"><a href="blog-details.html?id=' + post.id + '" class="btn btn-outline btn-sm">Read More <span class="arrow">→</span></a></div></div></article>';
+            }).join('');
+            if (typeof window.initScrollAnimations === 'function') window.initScrollAnimations();
+        });
+    </script>
+</body>
+</html>

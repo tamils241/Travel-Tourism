@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Stackly's featured destinations - Bali, Maldives, Paris, Swiss Alps, Kyoto and Dubai. Filter and sort by category, price and rating.">
+    <title>Destinations - Stackly Travel & Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+    <header class="header" id="header"></header>
+    <main id="main">
+        <section class="page-hero page-hero-destinations">
+            <div class="container">
+                <h1 class="scroll-animate">Explore Destinations</h1>
+                <p class="scroll-animate">Discover breathtaking destinations across the globe</p>
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> <span>/</span> <span>Destinations</span>
+                </nav>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="filters-bar">
+                    <div class="filter-group" role="group" aria-label="Destination categories">
+                        <button class="filter-btn destination-filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn destination-filter-btn" data-filter="beach">Beach</button>
+                        <button class="filter-btn destination-filter-btn" data-filter="city">City</button>
+                        <button class="filter-btn destination-filter-btn" data-filter="mountain">Mountain</button>
+                        <button class="filter-btn destination-filter-btn" data-filter="cultural">Cultural</button>
+                    </div>
+                    <div class="filter-selects">
+                        <label class="sr-only" for="destination-search">Search destinations</label>
+                        <input type="text" id="destination-search" class="search-input" placeholder="Search destinations..." style="min-width:180px">
+                        <label class="sr-only" for="destination-sort">Sort destinations</label>
+                        <select id="destination-sort">
+                            <option value="popular">Most Popular</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="name">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-3 destinations-grid" id="destinationsGrid"></div>
+                <div class="empty-state" id="destinationsEmpty" hidden>
+                    <div class="empty-state-icon">🌍</div>
+                    <h3 class="empty-state-title">No destinations found</h3>
+                    <p class="empty-state-description">Try adjusting your filters.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="footer"></footer>
+    <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/destinations.js"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>
