@@ -52,6 +52,7 @@ function initPasswordToggles() {
             input.type = isPassword ? 'text' : 'password';
             btn.textContent = isPassword ? '🙈' : '👁️';
             btn.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+            btn.setAttribute('aria-pressed', isPassword ? 'true' : 'false');
         });
     });
 }

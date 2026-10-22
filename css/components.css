@@ -1679,16 +1679,15 @@ body.no-scroll {
     position: relative;
 }
 
+/* Positioning, sizing and spacing of the eye icon live in the
+   "PASSWORD EYE ICON - OVERLAP FIX" block at the end of css/responsive.css.
+   Keep only non-conflicting declarations here. */
 .password-toggle {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
     color: var(--text-light);
+    line-height: 1;
 }
 
 .checkbox-label {
@@ -2352,6 +2351,44 @@ body.no-scroll {
     font-weight: 600;
     color: var(--secondary);
     font-size: 0.95rem;
+}
+
+/* Three-dot toggle that opens the dashboard nav on small screens.
+   Hidden on desktop where the sidebar is always visible; the mobile
+   visibility and the drop-down panel live in css/responsive.css. */
+.dashboard-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    padding: 0;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    color: var(--text);
+    cursor: pointer;
+    transition: background var(--transition-fast),
+                color var(--transition-fast),
+                border-color var(--transition-fast);
+}
+
+.dashboard-menu-toggle:hover {
+    background: #f1f5f9;
+    color: var(--primary);
+    border-color: var(--medium-gray);
+}
+
+.dashboard-menu-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.dashboard-menu-toggle.active {
+    background: rgba(8, 127, 140, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 @media (max-width: 480px) {

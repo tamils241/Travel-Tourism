@@ -1408,3 +1408,287 @@ body.no-scroll {
     animation: none;
   }
 }
+
+/* =====================================
+   PASSWORD EYE ICON - OVERLAP FIX
+   Login and Register Pages
+===================================== */
+
+.password-field {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+.password-field .form-input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 58px;
+    padding: 0 52px 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+.password-field .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    left: auto;
+    bottom: auto;
+
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.password-field .password-toggle:hover {
+    background: rgba(8, 127, 140, 0.08);
+    transform: translateY(-50%);
+}
+
+.password-field .password-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+}
+
+.password-field .form-input:focus {
+    outline-offset: 1px;
+}
+
+/* Prevent password rows from overflowing */
+.form-row {
+    min-width: 0;
+}
+
+.form-row > .form-group {
+    min-width: 0;
+    flex: 1 1 0;
+}
+
+/* Mobile responsive fix */
+@media (max-width: 600px) {
+    .password-field .form-input {
+        height: 52px;
+        padding-left: 14px;
+        padding-right: 46px;
+        font-size: 14px;
+    }
+
+    .password-field .password-toggle {
+        right: 6px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        font-size: 17px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .form-row > .form-group {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   DASHBOARD MOBILE NAV - THREE DOT BUTTON
+   The dashboard top bar gets a vertical
+   ellipsis button that opens the sidebar
+   nav as a drop-down panel on small
+   screens. The "js-dashboard-nav" class is
+   added by js/main.js, so without JS the
+   sidebar stays visible as before.
+========================================= */
+
+:root {
+    --dashboard-topbar-h: 66px;
+}
+
+@media (max-width: 991px) {
+    /* Reveal the three-dot button (hidden on desktop by default) */
+    .dashboard-menu-toggle {
+        display: inline-flex;
+    }
+
+    .js-dashboard-nav .dashboard-sidebar {
+        display: none;
+
+        position: fixed;
+        top: var(--dashboard-topbar-h, 66px);
+        left: 0;
+        right: 0;
+        z-index: 60;
+
+        margin: 0;
+        padding: var(--space-md) var(--space-lg);
+        border: none;
+        border-bottom: 1px solid var(--light-gray);
+        border-radius: 0;
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.14);
+
+        max-height: calc(100vh - var(--dashboard-topbar-h, 66px));
+        overflow-y: auto;
+    }
+
+    .js-dashboard-nav .dashboard-sidebar.is-open {
+        display: block;
+        animation: dashboardPanelIn 0.25s ease;
+    }
+
+    .js-dashboard-nav .dashboard-nav {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .js-dashboard-nav .dashboard-nav a {
+        padding: 0.65rem 0.75rem;
+    }
+}
+
+@keyframes dashboardPanelIn {
+    from {
+        transform: translateY(-10px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .js-dashboard-nav .dashboard-sidebar {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .js-dashboard-nav .dashboard-profile {
+        padding-bottom: var(--space-sm);
+        margin-bottom: var(--space-sm);
+    }
+
+    .js-dashboard-nav .dashboard-avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .js-dashboard-nav .dashboard-profile h3 {
+        margin-bottom: 0;
+    }
+}
+
+/* =========================================
+   ADMIN DASHBOARD - MOBILE HEADER ALIGNMENT
+========================================= */
+
+@media (max-width: 768px) {
+    .dashboard-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 2000;
+        width: 100%;
+        background: #fff;
+    }
+
+    .dashboard-topbar .dashboard-topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        min-height: 64px;
+        padding: 8px 16px;
+        gap: 12px;
+        box-sizing: border-box;
+    }
+
+    .dashboard-topbar .logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex: 0 1 auto;
+        min-width: 0;
+        margin: 0 auto 0 0;
+    }
+
+    .dashboard-topbar .logo img {
+        display: block;
+        width: 112px;
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .dashboard-topbar .dashboard-topbar-user {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-left: auto;
+    }
+
+    /* Three-dot menu button */
+    .dashboard-topbar .hamburger,
+    .dashboard-topbar .dashboard-menu-toggle {
+        position: relative;
+        inset: auto;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        transform: none;
+        border: 1px solid #dce4ed;
+        border-radius: 9px;
+        background: #fff;
+        box-sizing: border-box;
+        z-index: 5;
+    }
+
+    .dashboard-topbar .hamburger:hover,
+    .dashboard-topbar .dashboard-menu-toggle:hover {
+        background: #f3f7fa;
+        transform: none;
+    }
+
+    .dashboard-topbar .dashboard-topbar-name {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .dashboard-topbar .dashboard-topbar-inner {
+        padding-inline: 12px;
+        gap: 8px;
+    }
+
+    .dashboard-topbar .logo img {
+        width: 100px;
+    }
+}

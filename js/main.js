@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     init3DTiltCards();
     initWishlistCounter();
     initImageFallback();
+    initDashboardMenu();
 });
 
 /**
@@ -268,6 +269,90 @@ function init3DTiltCards() {
             }
         });
     });
+}
+
+/**
+ * Dashboard mobile navigation (three-dot toggle)
+ *
+ * Injects a vertical ellipsis button into the dashboard top bar. On small
+ * screens the sidebar navigation collapses into a drop-down panel that the
+ * button opens. The "js-dashboard-nav" marker class is added here so the
+ * stylesheet only collapses the sidebar when JavaScript is running.
+ */
+function initDashboardMenu() {
+    const topbar = document.querySelector('.dashboard-topbar');
+    const topbarInner = document.querySelector('.dashboard-topbar-inner');
+    const sidebar = document.querySelector('.dashboard-sidebar');
+    if (!topbar || !topbarInner || !sidebar) return;
+
+    document.documentElement.classList.add('js-dashboard-nav');
+
+    if (!sidebar.id) sidebar.id = 'dashboardSidebar';
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'dashboard-menu-toggle';
+    button.setAttribute('aria-label', 'Toggle dashboard navigation');
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', sidebar.id);
+    button.innerHTML =
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+        '<circle cx="12" cy="5" r="2"></circle>' +
+        '<circle cx="12" cy="12" r="2"></circle>' +
+        '<circle cx="12" cy="19" r="2"></circle>' +
+        '</svg>';
+
+    /* Kept last so it sits at the right edge of the top bar (logo stays left) */
+    topbarInner.appendChild(button);
+
+    function syncTopbarHeight() {
+        const height = topbar.offsetHeight;
+        if (height) {
+            document.documentElement.style.setProperty('--dashboard-topbar-h', height + 'px');
+        }
+    }
+
+    function setOpen(open) {
+        sidebar.classList.toggle('is-open', open);
+        button.classList.toggle('active', open);
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function isOpen() {
+        return sidebar.classList.contains('is-open');
+    }
+
+    button.addEventListener('click', function () {
+        setOpen(!isOpen());
+    });
+
+    // Close after following a link inside the panel
+    sidebar.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setOpen(false);
+    });
+
+    // Close when clicking outside the panel
+    document.addEventListener('click', function (e) {
+        if (!isOpen()) return;
+        if (sidebar.contains(e.target) || button.contains(e.target)) return;
+        setOpen(false);
+    });
+
+    // Close with Escape and return focus to the button
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && isOpen()) {
+            setOpen(false);
+            button.focus();
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        syncTopbarHeight();
+        if (window.innerWidth > 991) setOpen(false);
+    });
+
+    syncTopbarHeight();
+    setOpen(false);
 }
 
 /**
