@@ -1516,6 +1516,18 @@ body.no-scroll {
     background: var(--light-gray);
 }
 
+/* Auth pages share the site footer: card stays centered in the space above it */
+body.auth-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.auth-body .auth-page {
+    flex: 1 1 auto;
+    min-height: auto;
+}
+
 .auth-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
